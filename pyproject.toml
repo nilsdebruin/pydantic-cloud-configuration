@@ -1,19 +1,19 @@
 [tool.poetry]
-name = "pydantic-cloud-settings"
-version = "0.0.0"
+name = "pydantic-cloud-configuration"
+version = "0.0.1"
 description = "Pydantic Cloud Settings"
 authors = ["Nils de Bruin <nils@debruinmail.nl>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/nilsdebruin/pydantic-cloud-settings"
-repository = "https://github.com/nilsdebruin/pydantic-cloud-settings"
-documentation = "https://pydantic-cloud-settings.readthedocs.io"
+homepage = "https://github.com/nilsdebruin/pydantic-cloud-configuration"
+repository = "https://github.com/nilsdebruin/pydantic-cloud-configuration"
+documentation = "https://pydantic-cloud-configuration.readthedocs.io"
 classifiers = [
     "Development Status :: 3 - Alpha",
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/nilsdebruin/pydantic-cloud-settings/releases"
+Changelog = "https://github.com/nilsdebruin/pydantic-cloud-configuration/releases"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
@@ -52,7 +52,7 @@ nox-poetry = "^0.9.0"
 boto3-stubs = {extras = ["essential"], version = "^1.21.18"}
 
 [tool.poetry.scripts]
-pydantic-cloud-settings = "pydantic_cloud_settings.__main__:main"
+pydantic-cloud-configuration = "pydantic_cloud_configuration.__main__:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
@@ -60,7 +60,7 @@ tests = ["tests", "*/tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["pydantic_cloud_settings", "tests"]
+source = ["pydantic_cloud_configuration", "tests"]
 
 [tool.coverage.report]
 show_missing = true

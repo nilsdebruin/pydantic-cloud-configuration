@@ -1,8 +1,8 @@
 # Reference
 
-## pydantic_cloud_settings
+## pydantic_cloud_configuration
 
 ```{eval-rst}
-.. automodule:: pydantic_cloud_settings
+.. automodule:: pydantic_cloud_configuration
    :members:
 ```

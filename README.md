@@ -1,30 +1,30 @@
-# Pydantic Cloud Settings
+# Pydantic Cloud Configuration
 
-[![PyPI](https://img.shields.io/pypi/v/pydantic-cloud-settings.svg)][pypi_]
-[![Status](https://img.shields.io/pypi/status/pydantic-cloud-settings.svg)][status]
-[![Python Version](https://img.shields.io/pypi/pyversions/pydantic-cloud-settings)][python version]
-[![License](https://img.shields.io/pypi/l/pydantic-cloud-settings)][license]
+[![PyPI](https://img.shields.io/pypi/v/pydantic-cloud-configuration.svg)][pypi_]
+[![Status](https://img.shields.io/pypi/status/pydantic-cloud-configuration.svg)][status]
+[![Python Version](https://img.shields.io/pypi/pyversions/pydantic-cloud-configuration)][python version]
+[![License](https://img.shields.io/pypi/l/pydantic-cloud-configuration)][license]
 
-[![Read the documentation at https://pydantic-cloud-settings.readthedocs.io/](https://img.shields.io/readthedocs/pydantic-cloud-settings/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![Tests](https://github.com/nilsdebruin/pydantic-cloud-settings/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/nilsdebruin/pydantic-cloud-settings/branch/main/graph/badge.svg)][codecov]
+[![Read the documentation at https://pydantic-cloud-configuration.readthedocs.io/](https://img.shields.io/readthedocs/pydantic-cloud-configuration/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Tests](https://github.com/nilsdebruin/pydantic-cloud-configuration/workflows/Tests/badge.svg)][tests]
+[![Codecov](https://codecov.io/gh/nilsdebruin/pydantic-cloud-configuration/branch/main/graph/badge.svg)][codecov]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
-[pypi_]: https://pypi.org/project/pydantic-cloud-settings/
-[status]: https://pypi.org/project/pydantic-cloud-settings/
-[python version]: https://pypi.org/project/pydantic-cloud-settings
+[pypi_]: https://pypi.org/project/pydantic-cloud-configuration/
+[status]: https://pypi.org/project/pydantic-cloud-configuration/
+[python version]: https://pypi.org/project/pydantic-cloud-configuration
 [license]: https://opensource.org/licenses/MIT
-[read the docs]: https://pydantic-cloud-settings.readthedocs.io/
-[tests]: https://github.com/nilsdebruin/pydantic-cloud-settings/actions?workflow=Tests
-[codecov]: https://app.codecov.io/gh/nilsdebruin/pydantic-cloud-settings
+[read the docs]: https://pydantic-cloud-configuration.readthedocs.io/
+[tests]: https://github.com/nilsdebruin/pydantic-cloud-configuration/actions?workflow=Tests
+[codecov]: https://app.codecov.io/gh/nilsdebruin/pydantic-cloud-configuration
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
 
 ## Features
 
-Pydantic Cloud Settings simplifies the retrieval of settings from the AWS cloud based on conventions.
+Pydantic Cloud Configuration simplifies the retrieval of settings from the AWS cloud based on conventions.
 
 ## Requirements
 
@@ -32,10 +32,10 @@ Python 3.6+ required.
 
 ## Installation
 
-You can install _Pydantic Cloud Settings_ via [pip] from [PyPI]:
+You can install _Pydantic Cloud Configuration_ via [pip] from [PyPI]:
 
 ```console
-$ pip install pydantic-cloud-settings
+$ pip install pydantic-cloud-configuration
 ```
 
 ## Usage
@@ -65,10 +65,10 @@ This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter]
 [mit license]: https://opensource.org/licenses/MIT
 [pypi]: https://pypi.org/
 [hypermodern python cookiecutter]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
-[file an issue]: https://github.com/nilsdebruin/pydantic-cloud-settings/issues
+[file an issue]: https://github.com/nilsdebruin/pydantic-cloud-configuration/issues
 [pip]: https://pip.pypa.io/
 
 <!-- github-only -->
 
-[contributor guide]: https://github.com/nilsdebruin/pydantic-cloud-settings/blob/main/CONTRIBUTING.md
-[command-line reference]: https://pydantic-cloud-settings.readthedocs.io/en/latest/usage.html
+[contributor guide]: https://github.com/nilsdebruin/pydantic-cloud-configuration/blob/main/CONTRIBUTING.md
+[command-line reference]: https://pydantic-cloud-configuration.readthedocs.io/en/latest/usage.html

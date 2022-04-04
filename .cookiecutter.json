@@ -7,7 +7,7 @@
   "friendly_name": "Pydantic Cloud Settings",
   "github_user": "nilsdebruin",
   "license": "MIT",
-  "package_name": "pydantic_cloud_settings",
-  "project_name": "pydantic-cloud-settings",
+  "package_name": "pydantic_cloud_configuration",
+  "project_name": "pydantic-cloud-configuration",
   "version": "0.0.0"
 }

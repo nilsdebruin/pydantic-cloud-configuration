@@ -7,7 +7,7 @@ import boto3  # type: ignore # noqa: F401
 import pytest
 from pydantic import ValidationError
 
-from pydantic_cloud_settings.aws.parameter_store import AwsParameterStore
+from pydantic_cloud_configuration.aws.parameter_store import AwsParameterStore
 from tests.settings.settings import return_bad_config_class  # type: ignore
 from tests.settings.settings import return_bad_parameter_config
 from tests.settings.settings import return_base_settings

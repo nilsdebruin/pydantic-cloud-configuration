@@ -7,11 +7,11 @@ from typing import Optional
 from typing import Tuple
 from typing import cast
 
-from pydantic_cloud_settings.aws.parameter_store import AwsParameterStore
-from pydantic_cloud_settings.aws.parameter_store import (  # noqa: F401
+from pydantic_cloud_configuration.aws.parameter_store import AwsParameterStore
+from pydantic_cloud_configuration.aws.parameter_store import (  # noqa: F401
     aws_parameter_settings,
 )
-from pydantic_cloud_settings.cloud_base_settings import CloudBaseSettings
+from pydantic_cloud_configuration.cloud_base_settings import CloudBaseSettings
 
 
 def customise_sources(  # type: ignore

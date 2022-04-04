@@ -3,12 +3,16 @@ from typing import Any
 from typing import List
 from typing import Tuple
 
-from pydantic_cloud_settings.aws.parameter_store import AwsParameterStore  # noqa: E402
-from pydantic_cloud_settings.aws.parameter_store import (  # noqa: E402
+from pydantic_cloud_configuration.aws.parameter_store import (  # noqa: E402
+    AwsParameterStore,
+)
+from pydantic_cloud_configuration.aws.parameter_store import (  # noqa: E402
     aws_parameter_settings,
 )
-from pydantic_cloud_settings.cloud_base_settings import CloudBaseSettings  # noqa: E402
-from pydantic_cloud_settings.cloud_settings import CloudSettings
+from pydantic_cloud_configuration.cloud_base_settings import (  # noqa: E402
+    CloudBaseSettings,
+)
+from pydantic_cloud_configuration.cloud_settings import CloudSettings
 
 
 def return_config_class(

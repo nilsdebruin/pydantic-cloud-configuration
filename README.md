@@ -24,11 +24,11 @@
 
 ## Features
 
-- TODO
+Pydantic Cloud Settings simplifies the retrieval of settings from the AWS cloud based on conventions.
 
 ## Requirements
 
-- TODO
+Python 3.6+ required.
 
 ## Installation
 

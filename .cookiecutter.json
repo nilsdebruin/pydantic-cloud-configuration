@@ -1,0 +1,13 @@
+{
+  "_template": "git@github.com:cjolowicz/cookiecutter-hypermodern-python.git",
+  "author": "Nils de Bruin",
+  "copyright_year": "2022",
+  "development_status": "Development Status :: 3 - Alpha",
+  "email": "nils@debruinmail.nl",
+  "friendly_name": "Pydantic Cloud Settings",
+  "github_user": "nilsdebruin",
+  "license": "MIT",
+  "package_name": "pydantic_cloud_settings",
+  "project_name": "pydantic-cloud-settings",
+  "version": "0.0.0"
+}

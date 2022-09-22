@@ -62,7 +62,9 @@ def test_mock(ssm_mock, mock_settings_env_vars) -> None:  # type: ignore
 
     assert settings_without_prefix.store == "ENHcYRmDTElyAeLXwzcB"
 
-    settings_without_prefix_and_locations = return_config_class_without_prefix(aws_parameter_locations=False)
+    settings_without_prefix_and_locations = return_config_class_without_prefix(
+        aws_parameter_locations=False
+    )
 
     assert settings_without_prefix_and_locations.store != "ENHcYRmDTElyAeLXwzcB"
 

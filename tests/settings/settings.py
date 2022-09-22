@@ -44,12 +44,7 @@ def return_config_class_without_prefix(
     """Return an inherited config class."""
     if aws_parameter_locations:
         CloudSettingsTest = CloudSettings(  # noqa: N806
-            aws_parameter_locations=[
-                AwsParameterStore(
-                    name="store",
-                    lower_key=True
-                )
-            ]
+            aws_parameter_locations=[AwsParameterStore(name="store", lower_key=True)]
         )
     else:
         CloudSettingsTest = CloudSettings(aws_parameter_locations=[])  # noqa: N806

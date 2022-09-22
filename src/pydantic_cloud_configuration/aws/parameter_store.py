@@ -81,7 +81,7 @@ def aws_parameter_settings(settings: BaseSettings) -> Dict[str, Any]:  # noqa: C
             if parameter_store_location.output_prefix == "":
                 parameter_key = parameter_store_location.name
             else:
-                parameter_key = f"{parameter_store_location.output_prefix}_{parameter_store_location.name}"
+                parameter_key = f"{parameter_store_location.output_prefix}_{parameter_store_location.name}"  # noqa: B950
 
             if parameter_store_location.lower_key:
                 parameter_key = parameter_key.lower()

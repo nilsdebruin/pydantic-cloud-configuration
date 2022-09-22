@@ -12,6 +12,7 @@ from tests.settings.settings import return_bad_config_class  # type: ignore
 from tests.settings.settings import return_bad_parameter_config
 from tests.settings.settings import return_base_settings
 from tests.settings.settings import return_config_class
+from tests.settings.settings import return_config_class_without_prefix
 
 
 def test_settings_file_without_base_settings() -> None:
@@ -56,6 +57,16 @@ def test_mock(ssm_mock, mock_settings_env_vars) -> None:  # type: ignore
     more_bad_settings = return_bad_parameter_config()
 
     assert more_bad_settings.prefix_test_store != "ENHcYRmDTElyAeLXwzcB"
+
+    settings_without_prefix = return_config_class_without_prefix()
+
+    assert settings_without_prefix.store == "ENHcYRmDTElyAeLXwzcB"
+
+    settings_without_prefix_and_locations = return_config_class_without_prefix(
+        aws_parameter_locations=False
+    )
+
+    assert settings_without_prefix_and_locations.store != "ENHcYRmDTElyAeLXwzcB"
 
 
 def test_parameter_creation(mock_settings_env_vars) -> None:  # type: ignore

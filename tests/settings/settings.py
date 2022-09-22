@@ -38,6 +38,24 @@ def return_config_class(
     return AWSSettings()
 
 
+def return_config_class_without_prefix(
+    aws_parameter_locations: bool = True,
+) -> CloudSettings:
+    """Return an inherited config class."""
+    if aws_parameter_locations:
+        CloudSettingsTest = CloudSettings(  # noqa: N806
+            aws_parameter_locations=[AwsParameterStore(name="store", lower_key=True)]
+        )
+    else:
+        CloudSettingsTest = CloudSettings(aws_parameter_locations=[])  # noqa: N806
+
+    class AWSSettings(CloudSettingsTest):  # type: ignore
+        test: str = "Cool"
+        store: str = ""
+
+    return AWSSettings()
+
+
 def return_base_settings() -> CloudBaseSettings:
     """Return a complete config class."""
 

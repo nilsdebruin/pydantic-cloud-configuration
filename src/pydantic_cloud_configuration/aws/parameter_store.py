@@ -21,6 +21,7 @@ class AwsParameterStore(BaseModel):
 
     output_prefix: str = ""
     output_value_type: str = "str"
+    lower_key: bool = False
 
     settings_name_constant = "SETTINGS_NAME"
     settings_environment_constant = "SETTINGS_ENVIRONMENT"
@@ -77,9 +78,15 @@ def aws_parameter_settings(settings: BaseSettings) -> Dict[str, Any]:  # noqa: C
                 Name=parameter_store_location.location, WithDecryption=True
             )["Parameter"]["Value"]
 
-            result_dict = {
-                f"{parameter_store_location.output_prefix}_{parameter_store_location.name}": parameter_text  # noqa: B950
-            }
+            if parameter_store_location.output_prefix == "":
+                parameter_key = parameter_store_location.name
+            else:
+                parameter_key = f"{parameter_store_location.output_prefix}_{parameter_store_location.name}"  # noqa: B950
+
+            if parameter_store_location.lower_key:
+                parameter_key = parameter_key.lower()
+
+            result_dict = {parameter_key: parameter_text}
 
             parameter_dict.update(result_dict)
         except Exception as e:

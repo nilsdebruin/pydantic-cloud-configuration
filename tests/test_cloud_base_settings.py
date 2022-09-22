@@ -4,7 +4,8 @@ import os
 import pytest
 from pydantic import ValidationError
 
-from pydantic_cloud_configuration.cloud_base_settings import CloudBaseSettings, CloudBaseStrictSettings
+from pydantic_cloud_configuration.cloud_base_settings import CloudBaseSettings
+from pydantic_cloud_configuration.cloud_base_settings import CloudBaseStrictSettings
 
 
 def test_basic_settings() -> None:

@@ -41,7 +41,9 @@ class AwsParameterStore(BaseModel):
         if not self.settings_name:
             self.settings_name = os.environ.get(self.settings_name_constant)
         if not self.settings_environment:
-            self.settings_environment = os.environ.get(self.settings_environment_constant)
+            self.settings_environment = os.environ.get(
+                self.settings_environment_constant
+            )
 
     def _check_settings(self) -> None:
         if not self.settings_name or not self.settings_environment:

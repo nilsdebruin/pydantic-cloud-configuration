@@ -10,7 +10,7 @@ from pydantic_cloud_configuration.aws.parameter_store import (  # noqa: E402
     aws_parameter_settings,
 )
 from pydantic_cloud_configuration.cloud_base_settings import (  # noqa: E402
-    CloudBaseSettings,
+    CloudBaseSettings, CloudBaseStrictSettings
 )
 from pydantic_cloud_configuration.cloud_settings import CloudSettings
 
@@ -20,7 +20,7 @@ def return_config_class(
 ) -> CloudSettings:
     """Return an inherited config class."""
     if aws_parameter_locations:
-        CloudSettingsTest = CloudSettings(  # noqa: N806
+        CloudSettingsTest = CloudSettings(strict_settings=True, # noqa: N806
             aws_parameter_locations=[
                 AwsParameterStore(
                     name="store",
@@ -29,7 +29,7 @@ def return_config_class(
             ]
         )
     else:
-        CloudSettingsTest = CloudSettings(aws_parameter_locations=[])  # noqa: N806
+        CloudSettingsTest = CloudSettings(strict_settings=True, aws_parameter_locations=[])  # noqa: N806
 
     class AWSSettings(CloudSettingsTest):  # type: ignore
         test: str = "Cool"
@@ -43,11 +43,11 @@ def return_config_class_without_prefix(
 ) -> CloudSettings:
     """Return an inherited config class."""
     if aws_parameter_locations:
-        CloudSettingsTest = CloudSettings(  # noqa: N806
+        CloudSettingsTest = CloudSettings(strict_settings=True,  # noqa: N806
             aws_parameter_locations=[AwsParameterStore(name="store", lower_key=True)]
         )
     else:
-        CloudSettingsTest = CloudSettings(aws_parameter_locations=[])  # noqa: N806
+        CloudSettingsTest = CloudSettings(strict_settings=True, aws_parameter_locations=[])  # noqa: N806
 
     class AWSSettings(CloudSettingsTest):  # type: ignore
         test: str = "Cool"
@@ -59,7 +59,7 @@ def return_config_class_without_prefix(
 def return_base_settings() -> CloudBaseSettings:
     """Return a complete config class."""
 
-    class Settings(CloudBaseSettings):
+    class Settings(CloudBaseStrictSettings):
         """Test Settings class."""
 
         test: str
@@ -67,7 +67,7 @@ def return_base_settings() -> CloudBaseSettings:
 
         class Config:
             """Config class for test settings."""
-
+            strict_settings = True
             aws_secret_locations: List[AwsParameterStore] = []
             application_base_settings = CloudBaseSettings()
             aws_parameter_locations = [
@@ -99,7 +99,7 @@ def return_base_settings() -> CloudBaseSettings:
 
 def return_bad_config_class() -> CloudSettings:
     """Return a wrongly configured cloud config class."""
-    CloudSettingsTest = CloudSettings(  # noqa: N806
+    CloudSettingsTest = CloudSettings(strict_settings=True,  # noqa: N806
         aws_parameter_locations=[
             AwsParameterStore(
                 name="storesss",
@@ -117,7 +117,7 @@ def return_bad_config_class() -> CloudSettings:
 
 def return_bad_parameter_config() -> CloudSettings:
     """Return a wrongly configured cloud config class."""
-    CloudSettingsTest = CloudSettings(  # noqa: N806
+    CloudSettingsTest = CloudSettings(strict_settings=True, # noqa: N806
         settings_order=[
             "init_settings",
             "aws_parameter_setting",

@@ -20,7 +20,7 @@ def test_settings_file_without_base_settings() -> None:
     with pytest.raises(ValidationError) as err:
         return_base_settings()
 
-    assert "2 validation errors for CloudBaseSettings" in str(err.value)
+    assert "3 validation errors for Settings" in str(err.value)
 
 
 def test_boto3_not_present(mock_settings_env_vars) -> None:  # type: ignore

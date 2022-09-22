@@ -12,6 +12,7 @@ from pydantic_cloud_configuration.aws.parameter_store import (  # noqa: F401
     aws_parameter_settings,
 )
 from pydantic_cloud_configuration.cloud_base_settings import CloudBaseSettings
+from pydantic_cloud_configuration.cloud_base_settings import CloudBaseStrictSettings
 
 
 def customise_sources(  # type: ignore
@@ -42,6 +43,7 @@ class CloudSettings:
         class_name: str = "CloudSettings",
         env_file: str = ".env",
         extra: str = "ignore",
+        strict_settings: bool = False,
         settings_order: Optional[List[str]] = None,
     ) -> "CloudSettings":
         """Creation of a new Cloud Settings Class.
@@ -53,6 +55,7 @@ class CloudSettings:
             class_name: Name of the class to generate, default CloudSettings
             env_file: Location of the env file to use
             extra: How to handle extra parameters, default ignore
+            strict_settings: Use strict environment settings
             settings_order: The order of settings to parse
 
         Returns:
@@ -71,7 +74,10 @@ class CloudSettings:
         )
 
         config_class["customise_sources"] = classmethod(customise_source_partial)
-        config_class["application_base_settings"] = CloudBaseSettings()
+        if strict_settings:
+            config_class["application_base_settings"] = CloudBaseStrictSettings()
+        else:
+            config_class["application_base_settings"] = CloudBaseSettings()
         config_class["env_file"] = env_file
         config_class["extra"] = extra
 

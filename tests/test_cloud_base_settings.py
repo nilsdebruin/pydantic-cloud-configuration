@@ -5,6 +5,7 @@ import pytest
 from pydantic import ValidationError
 
 from pydantic_cloud_configuration.cloud_base_settings import CloudBaseSettings
+from pydantic_cloud_configuration.cloud_base_settings import CloudBaseStrictSettings
 
 
 def test_basic_settings() -> None:
@@ -29,7 +30,7 @@ def test_os_env_settings() -> None:
 def test_settings_name_not_present() -> None:
     """Missing settings test."""
     with pytest.raises(ValidationError) as err:
-        CloudBaseSettings()
+        CloudBaseStrictSettings()
 
     settings_errors = err.value.errors()
     assert settings_errors[0].get("msg") == "field required"

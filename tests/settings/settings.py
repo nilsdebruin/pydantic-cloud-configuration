@@ -12,6 +12,7 @@ from pydantic_cloud_configuration.aws.parameter_store import (  # noqa: E402
 from pydantic_cloud_configuration.cloud_base_settings import (  # noqa: E402
     CloudBaseSettings,
 )
+from pydantic_cloud_configuration.cloud_base_settings import CloudBaseStrictSettings
 from pydantic_cloud_configuration.cloud_settings import CloudSettings
 
 
@@ -20,18 +21,21 @@ def return_config_class(
 ) -> CloudSettings:
     """Return an inherited config class."""
     if aws_parameter_locations:
-        CloudSettingsTest = CloudSettings(  # noqa: N806
+        cloud_settings_test = CloudSettings(
+            strict_settings=True,
             aws_parameter_locations=[
                 AwsParameterStore(
                     name="store",
                     output_prefix="prefix_test",
                 )
-            ]
+            ],
         )
     else:
-        CloudSettingsTest = CloudSettings(aws_parameter_locations=[])  # noqa: N806
+        cloud_settings_test = CloudSettings(
+            strict_settings=True, aws_parameter_locations=[]
+        )
 
-    class AWSSettings(CloudSettingsTest):  # type: ignore
+    class AWSSettings(cloud_settings_test):  # type: ignore
         test: str = "Cool"
         prefix_test_store: str = ""
 
@@ -43,23 +47,26 @@ def return_config_class_without_prefix(
 ) -> CloudSettings:
     """Return an inherited config class."""
     if aws_parameter_locations:
-        CloudSettingsTest = CloudSettings(  # noqa: N806
-            aws_parameter_locations=[AwsParameterStore(name="store", lower_key=True)]
+        cloud_settings_test = CloudSettings(
+            strict_settings=True,
+            aws_parameter_locations=[AwsParameterStore(name="store", lower_key=True)],
         )
     else:
-        CloudSettingsTest = CloudSettings(aws_parameter_locations=[])  # noqa: N806
+        cloud_settings_test = CloudSettings(
+            strict_settings=True, aws_parameter_locations=[]
+        )
 
-    class AWSSettings(CloudSettingsTest):  # type: ignore
+    class AWSSettings(cloud_settings_test):  # type: ignore
         test: str = "Cool"
         store: str = ""
 
     return AWSSettings()
 
 
-def return_base_settings() -> CloudBaseSettings:
+def return_base_settings() -> CloudBaseStrictSettings:
     """Return a complete config class."""
 
-    class Settings(CloudBaseSettings):
+    class Settings(CloudBaseStrictSettings):
         """Test Settings class."""
 
         test: str
@@ -68,6 +75,7 @@ def return_base_settings() -> CloudBaseSettings:
         class Config:
             """Config class for test settings."""
 
+            strict_settings = True
             aws_secret_locations: List[AwsParameterStore] = []
             application_base_settings = CloudBaseSettings()
             aws_parameter_locations = [
@@ -99,16 +107,17 @@ def return_base_settings() -> CloudBaseSettings:
 
 def return_bad_config_class() -> CloudSettings:
     """Return a wrongly configured cloud config class."""
-    CloudSettingsTest = CloudSettings(  # noqa: N806
+    cloud_settings_test = CloudSettings(
+        strict_settings=True,
         aws_parameter_locations=[
             AwsParameterStore(
                 name="storesss",
                 output_prefix="prefix_testsss",
             )
-        ]
+        ],
     )
 
-    class AWSSettings(CloudSettingsTest):  # type: ignore
+    class AWSSettings(cloud_settings_test):  # type: ignore
         test: str = "Cool"
         prefix_test_store: str = ""
 
@@ -117,16 +126,17 @@ def return_bad_config_class() -> CloudSettings:
 
 def return_bad_parameter_config() -> CloudSettings:
     """Return a wrongly configured cloud config class."""
-    CloudSettingsTest = CloudSettings(  # noqa: N806
+    cloud_settings_test = CloudSettings(
+        strict_settings=True,  # noqa: N806
         settings_order=[
             "init_settings",
             "aws_parameter_setting",
             "file_secret_settings",
             "env_settings",
-        ]
-    )  # noqa: N806
+        ],
+    )
 
-    class AWSSettings(CloudSettingsTest):  # type: ignore
+    class AWSSettings(cloud_settings_test):  # type: ignore
         test: str = "Cool"
         prefix_test_store: str = ""
 

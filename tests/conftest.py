@@ -19,7 +19,7 @@ random.reseed_random(RANDOM_SEED)
 
 @pytest.fixture
 def aws_credentials() -> None:
-    """Mocked AWS Credentials for moto."""
+    """Mock AWS Credentials for moto."""
     os.environ["AWS_ACCESS_KEY_ID"] = "testing1"  # noqa: S105
     os.environ["AWS_SECRET_ACCESS_KEY"] = "testing2"  # noqa: S105
     os.environ["AWS_SECURITY_TOKEN"] = "testing3"  # noqa: S105

@@ -81,7 +81,7 @@ show_error_context = true
 
 [tool.ruff]
 ignore = ["E501"]
-line-length = 80
+line-length = 100
 select = [
     "B",
     "B9",

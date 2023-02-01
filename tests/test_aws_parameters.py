@@ -37,36 +37,36 @@ def test_settings_file(mock_settings_env_vars) -> None:  # type: ignore
     settings = return_base_settings()
 
     assert settings.settings_name == "cloud-app"
-    assert settings.test == "test" # type: ignore
+    assert settings.test == "test"  # type: ignore
 
 
 def test_mock(ssm_mock, mock_settings_env_vars) -> None:  # type: ignore
     """Test ssm mock."""
     settings = return_config_class()
 
-    assert settings.prefix_test_store == "ENHcYRmDTElyAeLXwzcB" # type: ignore
+    assert settings.prefix_test_store == "ENHcYRmDTElyAeLXwzcB"  # type: ignore
 
     settings_without_locations = return_config_class(aws_parameter_locations=False)
 
-    assert settings_without_locations.prefix_test_store != "ENHcYRmDTElyAeLXwzcB" # type: ignore
+    assert settings_without_locations.prefix_test_store != "ENHcYRmDTElyAeLXwzcB"  # type: ignore
 
     bad_settings = return_bad_config_class()
 
-    assert bad_settings.prefix_test_store != "ENHcYRmDTElyAeLXwzcB" # type: ignore
+    assert bad_settings.prefix_test_store != "ENHcYRmDTElyAeLXwzcB"  # type: ignore
 
     more_bad_settings = return_bad_parameter_config()
 
-    assert more_bad_settings.prefix_test_store != "ENHcYRmDTElyAeLXwzcB" # type: ignore
+    assert more_bad_settings.prefix_test_store != "ENHcYRmDTElyAeLXwzcB"  # type: ignore
 
     settings_without_prefix = return_config_class_without_prefix()
 
-    assert settings_without_prefix.store == "ENHcYRmDTElyAeLXwzcB" # type: ignore
+    assert settings_without_prefix.store == "ENHcYRmDTElyAeLXwzcB"  # type: ignore
 
     settings_without_prefix_and_locations = return_config_class_without_prefix(
         aws_parameter_locations=False
     )
 
-    assert settings_without_prefix_and_locations.store != "ENHcYRmDTElyAeLXwzcB" # type: ignore
+    assert settings_without_prefix_and_locations.store != "ENHcYRmDTElyAeLXwzcB"  # type: ignore
 
 
 def test_parameter_creation(mock_settings_env_vars) -> None:  # type: ignore

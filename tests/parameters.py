@@ -1,4 +1,5 @@
 """Test Parameters."""
+
 from collections import namedtuple
 
 import factory  # type: ignore
@@ -11,7 +12,9 @@ application_names = ["cloud-app", "another-app"]
 value_types = ["String", "SecureString"]
 
 
-class ParameterFactory(factory.Factory):  # type: ignore
+
+
+class ParameterFactory(factory.Factory):    # type: ignore
     """Factory creating parameters."""
 
     class Meta:
@@ -30,8 +33,7 @@ class ParameterFactory(factory.Factory):  # type: ignore
     application_name = factory.Faker("word", ext_word_list=application_names)
     application_setting = factory.Faker("word")
     name = factory.LazyAttribute(
-        lambda n: "/environments/%s/%s/%s"
-        % (n.environment_name, n.application_name, n.application_setting)
+        lambda n: f"/environments/{n.environment_name}/{n.application_name}/{n.application_setting}"
     )
     description = factory.Faker("text", max_nb_chars=60)
     type = factory.Faker("word", ext_word_list=value_types)

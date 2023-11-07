@@ -21,12 +21,10 @@ def customise_sources(  # type: ignore
     """Customised sources for retrieving settings from the cloud."""
     order: Tuple[Any, ...] = ()
     for setting in settings_order:
-        current_setting_local = locals().get(setting)
-        if current_setting_local:
+        if current_setting_local := locals().get(setting):
             order = order + (current_setting_local,)
             continue
-        current_setting_global = globals().get(setting)
-        if current_setting_global:
+        if current_setting_global := globals().get(setting):
             order = order + (current_setting_global,)
 
     return order
